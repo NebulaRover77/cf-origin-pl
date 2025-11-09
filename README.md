@@ -24,7 +24,7 @@ Using [`xcaddy`](https://github.com/caddyserver/xcaddy):
 
 ```bash
 xcaddy build \
-  --with github.com/yourorg/caddy-trusted-cloudfront-origin-pl
+  --with github.com/NebulaRover77/cf-origin-pl
 ```
 
 Or use the provided smoke image (Docker):
@@ -161,7 +161,7 @@ make clean
 
 ```bash
 GOFLAGS=-buildvcs=false xcaddy build \
-  --with github.com/yourorg/caddy-trusted-cloudfront-origin-pl
+  --with github.com/NebulaRover77/cf-origin-pl
 ```
 
 ---
