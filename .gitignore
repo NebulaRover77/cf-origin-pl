@@ -1,0 +1,39 @@
+# --- Go binaries & artifacts ---
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Build output
+/build/
+/bin/
+/dist/
+/out/
+/tmp/
+
+# Coverage & profiling
+*.out
+*.cov
+coverage.*
+/coverage/
+/profile.cov
+*.prof
+
+# Logs
+*.log
+logs/
+
+# Local config (keep example files tracked)
+Caddyfile
+.env
+.env.*
+
+# Editors / OS cruft
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db

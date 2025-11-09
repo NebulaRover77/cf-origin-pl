@@ -1,0 +1,30 @@
+{
+  servers {
+    trusted_proxies cloudfront_origin_pl {
+      region us-east-1
+
+      # Choose ONE of the following:
+      # prefix_list_id pl-3b927c52
+      prefix_list_name com.amazonaws.global.cloudfront.origin-facing
+
+      # Set true only if the IPv6 list exists in your account/region
+      include_ipv6 false
+
+      # How often to refresh (default is 12h)
+      refresh 12h
+
+      # Optional auth tweaks:
+      # aws_profile prod
+      # role_arn arn:aws:iam::123:role/assume-me
+
+      # Optional: fail startup if the final set is empty
+      # require_nonempty true
+    }
+
+    # Which headers to trust for the client IP (in order)
+    client_ip_headers X-Forwarded-For CloudFront-Viewer-Address
+
+    # Only trust those headers if the connection is from the ranges above
+    trusted_proxies_strict
+  }
+}

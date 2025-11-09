@@ -1,0 +1,28 @@
+# syntax=docker/dockerfile:1
+
+# Build Caddy with your plugin
+FROM caddy:2-builder AS builder
+WORKDIR /src
+
+# Flip this to 1 to pull from GitHub instead of using local files
+ARG REMOTE=0
+
+# Must match your plugin's go.mod module path
+ARG MOD=github.com/NebulaRover77/cf-origin-pl
+
+# Always copy local source; it's used only when REMOTE=0
+COPY . /src/plugin
+
+RUN if [ "$REMOTE" = "1" ]; then \
+      xcaddy build \
+        --with github.com/caddy-dns/he \
+        --with ${MOD}; \
+    else \
+      xcaddy build \
+        --with github.com/caddy-dns/he \
+        --with ${MOD}=/src/plugin; \
+    fi
+
+# Final image
+FROM caddy:2
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
