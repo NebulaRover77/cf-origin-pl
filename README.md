@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> **Use this instead:** https://github.com/xcaddyplugins/caddy-trusted-cloudfront  
+> It fetches CloudFront IP ranges from AWS’s public JSON
+> endpoint (`/tools/list-cloudfront-ips`) and **does not require IAM
+> permissions**. This repo (prefix-list approach) is archived. Hopefully someone
+> will find it useful for educational purposes.
+
 # Caddy Trusted CloudFront Origin Prefix List (IP Source)
 
 A Caddy v2 module that resolves **AWS Managed Prefix Lists** for CloudFront’s *origin-facing* networks and feeds them to `trusted_proxies`. Use this when your Caddy sits behind Amazon CloudFront and you want accurate, auto-refreshed CIDR ranges for real client IP extraction.
